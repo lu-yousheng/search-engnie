@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]--><!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]--><!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]--><!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!--> 
+<html lang="en"><!--<![endif]--> 
+	<head>
+		<meta charset="utf-8">
+		<title>Messages - Akira</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="css/site.css" rel="stylesheet">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/base64.min.js"></script>
+		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></scripty><![endif]-->
+		<style>
+			.highlight {
+				color: red; /* 更改为你想要的颜色，例如红色 */
+			}
+
+		</style>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">Akira</a>
+						<div class="nav-collapse">
+							<ul class="nav">
+								<li class="active">
+									<a href="index.html">首页</a>
+								</li>
+								<li>
+									<a href="groups.html">群组</a>
+								</li>
+								<li>
+									<a href="help.html">帮助</a>
+								</li>
+								<!-- <li class="dropdown">
+									<a href="help.htm" class="dropdown-toggle" data-toggle="dropdown">Tours <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="help.htm">Introduction Tour</a>
+										</li>
+										<li>
+											<a href="help.htm">Project Organisation</a>
+										</li>
+										<li>
+											<a href="help.htm">Task Assignment</a>
+										</li>
+										<li>
+											<a href="help.htm">Access Permissions</a>
+										</li>
+										<li class="divider">
+										</li>
+										<li class="nav-header">
+											Files
+										</li>
+										<li>
+											<a href="help.htm">How to upload multiple files</a>
+										</li>
+										<li>
+											<a href="help.htm">Using file version</a>
+										</li>
+									</ul>
+								</li> -->
+							</ul>
+								<input type="text" class="search-query span2" id="keyword" placeholder="Search" style="margin-top: 4px;"/>
+								<button onclick="getMyArtList()">搜索</button>
+							<ul class="nav pull-right">
+								<li>
+									<a href="profile.htm">用户</a>
+								</li>
+								<li>
+									<a href="login.htm">注册</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span3">
+					<div class="well" style="padding: 8px 0;">
+						<ul class="nav nav-list">
+							<li class="nav-header">
+								Akira
+							</li>
+							<li >
+								<a href="index.html"><i class="icon-white icon-home"></i> 首页</a>
+							</li>
+							<li>
+								<a href="addgroup.html"><i class="icon-folder-open"></i> 创建群组</a>
+							</li>
+							<li>
+								<a href="joingroup.html"><i class="icon-check"></i> 添加群组</a>
+							</li>
+							<li>
+								<a href="groups.html"><i class="icon-envelope"></i> 全部群组</a>
+							</li>
+							<li class="active">
+								<a href="#"><i class="icon-file"></i> 群组文件</a>
+							</li>
+							
+							<li>
+								<a href="settings.html"><i class="icon-cog"></i> 设置</a>
+							</li>
+							<li class="divider">
+							</li>
+							<li>
+								<a href="help.html"><i class="icon-info-sign"></i> 帮助</a>
+							</li>
+							<li class="nav-header">
+								上传文件
+							</li>
+							<li>
+								<a href="upfile-user.html"><i class="icon-picture"></i> 上传至个人</a>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="span9">
+					<h1>
+						点击上方搜索框进行搜索...
+					</h1>
+					<h2>
+					</h2>
+					<ul class="messages">
+						<!-- <li class="well">
+							<p class="message" id="highlight">
+								符合关键词部分
+							</p>
+							<p class="message" id="docexplain">文件描述</p>
+							<span class="meta" id="docname" onclick="">文件名称 ->查看文件</em></span>
+							<span class="meta" id="createtime">创建时间</em></span>
+							<span class="meta" id="docuser">上传作者</em></span>
+						</li> -->
+						
+					</ul>
+					<!-- <a class="toggle-link" href="#message-reply"><i class="icon-plus"></i> Reply</a> -->
+					<form id="message-reply" class="form-horizontal hidden">
+						<fieldset>
+							<legend>Reply</legend>
+							<div class="control-group">
+								<label class="control-label" for="textarea">Message</label>
+								<div class="controls">
+									<textarea class="input-xlarge" id="textarea" rows="4"></textarea>
+								</div>
+							</div>
+							<div class="form-actions">
+								<button type="submit" class="btn btn-primary">Create</button> <button class="btn">Cancel</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/site.js"></script>
+		<script>
+            function getUrlValue(key){
+            //ex?id=1&v=2
+            var params = location.search;
+            if(params.length>1){
+                params = location.search.substring(1);
+                var paramArr = params.split("&");
+                for(var i = 0;i<paramArr.length;i++){
+                    var kv = paramArr[i].split("=");
+                if(kv[0] == key){
+                    return kv[1]; 
+                }
+            }
+            }
+            return "";
+
+        }
+        const group_id = getUrlValue("id");
+			function getMyArtList() {
+			// 清除之前的搜索结果
+			var messagesList = document.querySelector('.messages');
+			messagesList.innerHTML = '';
+
+			var keyword = jQuery("#keyword").val();
+            jQuery.ajax({
+                url:"/files/searchingp",
+                type:"post",
+                data:{"keyword":keyword,"group_id":group_id},
+                success:function(result) {
+                    if(result != null && result.code==200) {
+                        //有两种情况.一种是发表了文章,一种是没有发表文章
+                        if(result.data!=null && result.data.length>0){
+                            // 获取要填充数据的父元素
+							var messagesList = document.querySelector('.messages');
+
+							// 遍历数据数组，动态创建列表项并填充数据
+							result.data.forEach(function(data) {
+								// 创建 li 元素
+								var listItem = document.createElement('li');
+								listItem.className = 'well';
+
+                                // 创建一个按钮元素用于下载文件
+                                var downloadButton = document.createElement('button');
+                                downloadButton.textContent = '下载文件';
+                                downloadButton.className = 'download-button';
+                                downloadButton.onclick = function() {
+                                    downloadFile(data.id, data.docpath);
+                                };
+
+								// 创建 p 元素并填充高亮部分数据
+								var highlightPara = document.createElement('p');
+								// 使用正则表达式将包含高亮部分的 <em> 标签提取出来
+								highlightPara.className = 'message';
+								// 使用正则表达式匹配所有 <em> 标签
+								// 将 data.highlight 的内容作为 HTML 插入
+								highlightPara.innerHTML = data.highlight;
+
+								// 遍历所有 <em> 标签，为其中的文本添加颜色样式
+								var emTags = highlightPara.getElementsByTagName("em");
+								for (var i = 0; i < emTags.length; i++) {
+									emTags[i].style.color = "red"; // 设置为红色，你可以修改为你想要的颜色
+								}
+
+
+								// 创建 p 元素并填充文件描述数据
+								var docExplainPara = document.createElement('p');
+								docExplainPara.className = 'message';
+								docExplainPara.textContent = data.docexplain;
+
+								// 创建 span 元素并填充文件名称和查看文件链接数据
+								var docNameSpan = document.createElement('span');
+								docNameSpan.className = 'meta';
+								docNameSpan.innerHTML = '<a href="#" onclick="viewFile(\'' + data.docpath + '\')">' + data.docname + ' ->查看文件</a>';
+
+
+								// 创建 span 元素并填充创建时间数据
+								var createTimeSpan = document.createElement('span');
+								createTimeSpan.className = 'meta';
+								createTimeSpan.textContent = data.createtime;
+
+								// 创建 span 元素并填充上传作者数据
+								var docUserSpan = document.createElement('span');
+								docUserSpan.className = 'meta';
+								docUserSpan.textContent = data.docuser;
+
+								// 将创建的元素添加到 li 元素中
+								listItem.appendChild(highlightPara);
+								listItem.appendChild(docExplainPara);
+								listItem.appendChild(docNameSpan);
+								listItem.appendChild(createTimeSpan);
+								listItem.appendChild(docUserSpan);
+                                listItem.appendChild(downloadButton);
+
+								// 将 li 元素添加到 ul 列表中
+								messagesList.appendChild(listItem);
+							});
+
+                        }else{
+                            //用户没有发表文章
+                            jQuery("#artDiv").html("<h3>暂无文章<h3>");
+                        }
+                    }else{
+                        alert("查询文章列表出错,请重新尝试")
+                    }
+                }
+            })
+        }
+
+
+		function downloadFile(docId, docPath) {
+                // 构造下载文件的请求
+                var downloadRequest = {
+                    doc_id: docId,
+                    doc_path: docPath
+                };
+
+                // 发送下载文件请求
+                jQuery.ajax({
+                    url: "/files/download",
+                    type: "post",
+                    data: downloadRequest,
+                    xhrFields: {
+                        responseType: '' // 将响应类型设置为空字符串
+                    },
+                    success: function(response) {
+                        var blob = new Blob([response]); // 创建 Blob 对象
+                        var link = document.createElement('a'); // 创建 <a> 元素
+                        link.href = window.URL.createObjectURL(blob); // 设置链接地址
+                        link.download = docPath; // 设置下载文件名
+                        link.click(); // 模拟点击链接进行下载
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("下载文件失败: " + error);
+                    }
+                });
+            }
+
+
+		function viewFile(path) {
+			var url = 'http://127.0.0.1:8080/fileDownload/' + path; //要预览文件的访问地址
+			var b64Encoded = Base64.encode(url);
+			window.open('http://127.0.0.1:8012/onlinePreview?url='+encodeURIComponent(b64Encoded));
+			}
+		</script>
+	</body>
+</html>

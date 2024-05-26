@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]--><!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]--><!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]--><!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Activity - Akira</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!-- <style>
+            /* 修改模态框的样式 */
+    .modal-content {
+        background-color: rgba(0, 0, 0, 0.8); /* 设置背景透明度为 0.8 */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+    }
+
+    /* 修改模态框标题的样式 */
+    .modal-header {
+        background-color: rgba(0, 0, 0, 0.5); /* 设置标题区域背景透明度为 0.5 */
+        color: white; /* 设置标题文字颜色为白色 */
+    }
+
+    /* 修改模态框内容的样式 */
+    .modal-body {
+        color: black; /* 设置内容区域文字颜色为黑色 */
+    }
+
+    </style> -->
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">Akira</a>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li>
+                            <a href="index.html">首页</a>
+                        </li>
+                        <li class="active">
+                            <a href="#">群组</a>
+                        </li>
+                        <li>
+                            <a href="help.html">帮助</a>
+                        </li>
+                        <!-- <li class="dropdown">
+                            <a href="help.htm" class="dropdown-toggle" data-toggle="dropdown">Tours <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="help.htm">Introduction Tour</a>
+                                </li>
+                                <li>
+                                    <a href="help.htm">Project Organisation</a>
+                                </li>
+                                <li>
+                                    <a href="help.htm">Task Assignment</a>
+                                </li>
+                                <li>
+                                    <a href="help.htm">Access Permissions</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li class="nav-header">
+                                    Files
+                                </li>
+                                <li>
+                                    <a href="help.htm">How to upload multiple files</a>
+                                </li>
+                                <li>
+                                    <a href="help.htm">Using file version</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                    <!-- <form class="navbar-search pull-left" action="">
+                        <input type="text" class="search-query span2" placeholder="Search" />
+                    </form> -->
+                    <ul class="nav pull-right">
+                        <li>
+                            <a href="profile.htm">用户</a>
+                        </li>
+                        <li>
+                            <a href="login.htm">注册</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span3">
+            <div class="well" style="padding: 8px 0;">
+                <ul class="nav nav-list">
+                    <li class="nav-header">
+                        Akira
+                    </li>
+                    <li >
+                        <a href="index.htm"><i class="icon-white icon-home"></i> 首页</a>
+                    </li>
+                    <li>
+                        <a href="addgroup.html"><i class="icon-folder-open"></i> 创建群组</a>
+                    </li>
+                    <li>
+                        <a href="joingroup.html"><i class="icon-check"></i> 添加群组</a>
+                    </li>
+                    <li class="active">
+                        <a href="groups.html"><i class="icon-envelope"></i> 全部群组</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="icon-file"></i> 群组文件</a>
+                    </li>
+                    <li>
+                        <a href="messages.html"><i class="icon-list-alt"></i> 个人文件</a>
+                    </li>
+                    
+                    <li class="divider">
+                    </li>
+                    <li>
+                        <a href="help.html"><i class="icon-info-sign"></i> 帮助</a>
+                    </li>
+                    <li class="nav-header">
+                        上传文件
+                    </li>
+                    <li>
+                        <a href="upfile-user.html"><i class="icon-picture"></i> 上传至个人</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="span9">
+           <h1>
+        您创建的群组
+    </h1>
+    <table id="created-groups-table" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>名称</th>
+                <th>群主</th>
+                <th>群介绍</th>
+                <th>创建时间</th>
+                <th>查看</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 这里将填充您创建的群组的信息 -->
+        </tbody>
+    </table>
+            <div class="pagination">
+                <ul>
+                    <li class="disabled">
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+            <h1>
+                加入的群组
+            </h1>
+            <table id="joined-groups-table" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>
+                        名称
+                    </th>
+                    <th>
+                        群主
+                    </th>
+                    <th>
+                        群介绍
+                    </th>
+                    <th>
+                        创建时间
+                    </th>
+                    <th>
+                        操作
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                    <!-- 这里将填充您加入的群组的信息 -->
+                </tbody>
+            </table>
+            <div class="pagination">
+                <ul>
+                    <li class="disabled">
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- 创建群组模态框 -->
+            <div id="memberModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">成员信息</h4>
+                            <button type="button" class="btn btn-danger btn-sm delete-group-btn" >删除群组</button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>用户名</th>
+                                        <th>加入时间</th>
+                                        <th>角色</th>
+                                        <th>联系方式</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Member data will be dynamically populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 成员信息模态框 -->
+            <div class="modal fade" id="memberModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="memberModalLabel">群组成员信息</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>用户名</th>
+                                        <th>加入时间</th>
+                                        <th>角色</th>
+                                        <th>联系方式</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="memberTableBody">
+                                    <!-- 这里将填充成员信息 -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/site.js"></script>
+<script>
+    $(document).ready(function() {
+        // 添加点击事件处理程序到删除群组按钮
+        $('.delete-group-btn').click(function() {
+            // 在这里编写删除整个群组的逻辑
+            // 可以使用 AJAX 请求向服务器发送删除群组的请求
+            // 比如，发送一个 DELETE 请求到服务器，删除指定的群组
+            // 在成功删除群组后，你可以执行一些操作，比如刷新页面或者更新界面
+            var groupId = $(this).data('group-id');
+            $.ajax({
+                url: "/group/deletgroup", // 后端接口
+                type: "post",
+                data:{"group_id":groupId},
+                success: function (result) {
+                   if(result != null && result.code == 200){
+                    confirm("删除群组成功");
+                    $('#memberModal').modal('hide');
+                    groupsList();
+                   }
+                },
+                error: function () {
+                    alert("删除失败，请重试！");
+                }
+            });
+        });
+    });
+       // 显示成员模态框的函数
+        function showMemberModal(groupId) {
+            // AJAX 请求获取成员数据
+            $.ajax({
+                url: "/group/userlist", // 后端接口
+                type: "post",
+                data:{"group_id":groupId},
+                success: function (result) {
+                    // 使用数据填充成员表格
+                    populateMemberTable(result.data);
+                    $('#memberModal .delete-group-btn').attr('data-group-id', groupId);
+                    // 显示模态框
+                    $('#memberModal').modal('show');
+                },
+                error: function () {
+                    alert("获取成员数据时出错。");
+                }
+            });
+        }
+
+        // 填充成员表格的函数
+        function populateMemberTable(data) {
+            var tbody = $('#memberModal tbody');
+            tbody.empty(); // 清空已有行
+
+            // 遍历成员数据并添加到表格中
+            data.forEach(function (member) {
+                var deleteButton = ''; // 默认为空字符串
+                if (member.role !== 'ADMIN') { // 如果成员角色不是管理员
+                    deleteButton = '<button class="btn btn-danger" onclick="deleteMember(' + member.user_id + ')">删除</button>'; // 构建删除按钮
+                }
+                var row = '<tr>' +
+                    '<td>' + member.username + '</td>' +
+                    '<td>' + member.joined_at + '</td>' +
+                    '<td>' + member.role + '</td>' +
+                    '<td>' + member.contact + '</td>' +
+                    '<td>' + deleteButton + '</td>' + // 将删除按钮添加到表格中
+                    '</tr>';
+                tbody.append(row);
+                        });
+        }
+
+        // 删除成员的函数
+        function deleteMember(memberId) {
+            // 发送删除成员的 AJAX 请求
+            $.ajax({
+                url: "/group/deleteuser", // 后端接口
+                type: "POST",
+                data: { "user_id": memberId },
+                success: function () {
+                    // 成员删除成功，刷新成员表格
+                    alert("删除成功！");
+                    // 在这里调用刷新成员列表的函数
+                    refreshMemberTable();
+                },
+                error: function () {
+                    alert("删除成员时出错。");
+                }
+            });
+        }
+
+        // 刷新成员列表的函数
+        function refreshMemberTable() {
+            var groupId = $('#memberModal .delete-group-btn').data('group-id');
+            showMemberModal(groupId); // 这里重新显示模态框并填充数据
+        }
+
+        // 在静态的父元素上绑定点击事件，然后指定子元素的选择器
+        $('table').on('click', '.view-link', function() {
+            // 获取点击链接所在行的群组 ID
+            var groupId = $(this).closest('tr').data('group-id');
+            // 调用显示成员模态框的函数，并传递群组 ID
+            showMemberModal(groupId);
+        });
+
+        function groupsList() {
+                jQuery.ajax({
+                    url: "/group/selflist",
+                    type: "post",
+                    data: {},
+                    success: function(result) {
+                        if (result != null && result.code == 200) {
+                            // 清空表格内容，避免重复添加
+                            $('#created-groups-table tbody').empty();
+                            $('#joined-groups-table tbody').empty();
+
+                            // 遍历自己创建的群组列表数据
+                            result.data.ownedGroups.forEach(function(group) {
+                                // 创建表格行
+                                var tableRow = '<tr data-group-id="' + group.group_id + '">' +
+                                    '<td>' + group.group_name + '</td>' +
+                                    '<td>' + group.user_name + '</td>' +
+                                    '<td>' + group.description + '</td>' +
+                                    '<td>' + group.createtime + '</td>' +
+                                    '<td><a href="#" class="view-link">查看</a> | <a href="#" class="enter-group-link">进入群组</a></td>' +
+                                    '</tr>';
+
+                                // 将表格行添加到相应的表格中
+                                $('#created-groups-table tbody').append(tableRow);
+                            });
+
+                            // 遍历加入的群组列表数据
+                            result.data.allGroups.forEach(function(group) {
+                                // 创建表格行
+                                var tableRow = '<tr data-group-id="' + group.group_id + '">' +
+                                    '<td>' + group.group_name + '</td>' +
+                                    '<td>' + group.user_name + '</td>' +
+                                    '<td>' + group.description + '</td>' +
+                                    '<td>' + group.createtime + '</td>' +
+                                    '<td><a href="#" class="view-link">查看</a> | <a href="#" class="enter-group-link">进入群组</a></td>' +
+                                    '</tr>';
+
+                                // 将表格行添加到相应的表格中
+                                $('#joined-groups-table tbody').append(tableRow);
+                            });
+                        } else {
+                            alert("群组加载失败，请重新刷新");
+                        }
+                    }
+                });
+            }
+
+            groupsList();
+             $(document).ready(function() {
+                    // 为进入群组的链接添加点击事件处理程序
+                    $('table').on('click', '.enter-group-link', function() {
+                        // 获取点击链接所在行的群组 ID
+                        var groupId = $(this).closest('tr').data('group-id');
+                        // 调用进入群组函数，并传递群组 ID
+                        enterGroup(groupId);
+                    });
+                });
+            function enterGroup(groupId) {
+                location.href = "groupsfiles.html?id=" + groupId;
+            }// 进入群组的函数
+
+
+</script>
+</body>
+</html>

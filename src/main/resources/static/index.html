@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]--><!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]--><!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]--><!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]--><!--[if (gt IE 9)|!(IE)]><!--> 
+<html lang="en"><!--<![endif]--> 
+	<head>
+		<meta charset="utf-8">
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+		<link href="css/site.css" rel="stylesheet">
+		<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">Akira</a>
+						<div class="nav-collapse">
+							<ul class="nav">
+								<li class="active">
+									<a href="index.html">首页</a>
+								</li>
+								<li>
+									<a href="groups.html">群组</a>
+								</li>
+								<li>
+									<a href="help.htm">帮助</a>
+								</li>
+								<!-- <li class="dropdown">
+									<a href="help.htm" class="dropdown-toggle" data-toggle="dropdown">Tours <b class="caret"></b></a>
+									<ul class="dropdown-menu">
+										<li>
+											<a href="help.htm">Introduction Tour</a>
+										</li>
+										<li>
+											<a href="help.htm">Project Organisation</a>
+										</li>
+										<li>
+											<a href="help.htm">Task Assignment</a>
+										</li>
+										<li>
+											<a href="help.htm">Access Permissions</a>
+										</li>
+										<li class="divider">
+										</li>
+										<li class="nav-header">
+											Files
+										</li>
+										<li>
+											<a href="help.htm">How to upload multiple files</a>
+										</li>
+										<li>
+											<a href="help.htm">Using file version</a>
+										</li>
+									</ul>
+								</li> -->
+							</ul>
+								<input style="margin-top: 5px;" type="text"  onclick="searchPage()" class="search-query span2" placeholder="搜索" />
+							<ul class="nav pull-right">
+								<li>
+									<a href="profile.htm">用户</a>
+								</li>
+								<li>
+									<a href="reg.html">注册</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span3">
+					<div class="well" style="padding: 8px 0;">
+						<ul class="nav nav-list">
+							<li class="nav-header">
+								Akira
+							</li>
+							<li class="active">
+								<a href="index.htm"><i class="icon-white icon-home"></i> 首页</a>
+							</li>
+							<li>
+								<a href="addgroup.html"><i class="icon-folder-open"></i> 创建群组</a>
+							</li>
+							<li>
+								<a href="joingroup.html"><i class="icon-check"></i> 添加群组</a>
+							</li>
+							<li>
+								<a href="groups.html"><i class="icon-envelope"></i> 全部群组</a>
+							</li>
+							<li>
+								<a href="groups.html"><i class="icon-file"></i> 群组文件</a>
+							</li>
+							<li>
+								<a href="messages.html"><i class="icon-list-alt"></i> 个人文件</a>
+							</li>
+							<li class="divider">
+							</li>
+							<li>
+								<a href="help.html"><i class="icon-info-sign"></i> 帮助</a>
+							</li>
+							<li class="nav-header">
+								上传文件
+							</li>
+							<li>
+								<a href="upfile-user.html"><i class="icon-picture"></i> 上传至个人</a>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				<div class="span9">
+					<h1>
+						Akira文档搜索引擎
+					</h1>
+					<div class="hero-unit">
+						<h1>
+							欢迎！
+						</h1>
+						<p>
+							更多想要了解的请去帮助手册->
+						</p>
+						<p>
+							<a href="help.html" class="btn btn-primary btn-large">了解</a> <a class="btn btn-large">不，谢谢</a>
+						</p>
+					</div>
+					<!-- <div class="well summary">
+						<ul>
+							<li>
+								<a href="#"><span class="count">3</span> 群组</a>
+							</li>
+							<li>
+								<a href="#"><span class="count">27</span>群文件 </a>
+							</li>
+							<li>
+								<a href="#"><span class="count">7</span> 个人文件</a>
+							</li>
+							<li class="last">
+								<a href="#"><span class="count">5</span> 个人消息</a>
+							</li>
+						</ul>
+					</div>
+					<h2>
+						最近文件
+					</h2>
+					<table class="table table-bordered table-striped">
+						<thead>
+							<tr>
+								<th>
+									项目
+								</th>
+								<th>
+									Client
+								</th>
+								<th>
+									Type
+								</th>
+								<th>
+									Date
+								</th>
+								<th>
+									View
+								</th>
+							</tr>
+						</thead>
+					</table>
+					<ul class="pager">
+						<li class="next">
+							<a href="activity.htm">更多 &rarr;</a>
+						</li>
+					</ul>
+                    <ul class="pager">
+						<li class="next">
+							More Templates <a href="http://h2design.taobao.com/" target="_blank">氢设计</a> <a href="http://h2design.taobao.com/153/" title="网页模板" target="_blank">网页模板</a>
+						</li>
+					</ul>
+				</div>
+			</div> -->
+		</div>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/site.js"></script>
+	    <script>
+			//获取用户信息
+		function searchPage() {
+			location.href = "messages.html";
+		}
+        function showInfo() {
+            jQuery.ajax({
+                url:"/user/showinfo",
+                type:"post",
+                data:{},
+                success:function(result) {
+                    if(result!=null && result.code==200){
+                       
+                    }else{
+                        console.log("用户未登录");
+                    }
+                }
+            })
+        }
+        showInfo();
+
+		function isUserLoggedIn(callback) {
+			jQuery.ajax({
+				url: "/user/islogin",
+				type: "post",
+				success: function(result) {
+					// 在成功回调函数中调用传入的回调函数，并传递用户登录状态
+					callback(result != null && result.code == 200);
+				}
+			});
+		}
+
+		// 在页面加载完成后执行
+		$(document).ready(function() {
+			// 获取注册链接和注销链接的元素
+			var registerLink = $('<a href="#">注册</a>');
+			var logoutLink = $('<a href="#">注销</a>'); // 创建一个注销链接
+
+			// 调用 isUserLoggedIn 函数来检查用户登录状态
+			isUserLoggedIn(function(loggedIn) {
+				if (loggedIn) {
+					// 用户已登录，显示注销链接
+					registerLink.remove(); // 删除注册链接
+					registerLink.after(logoutLink); // 将注销链接添加到注册链接后面
+					// 注销链接的点击事件处理程序
+					logoutLink.click(function(e) {
+						e.preventDefault(); // 阻止默认行为
+						// 这里可以执行注销用户的操作，比如向服务器发送注销请求等
+						// 这里只是一个示例，你需要根据你的网站逻辑来实现注销用户的具体操作
+						alert("用户已注销！");
+					});
+				} else {
+					// 用户未登录，显示注册链接
+					registerLink.show(); // 显示注册链接
+				}
+			});
+		});
+		</script>
+	</body>
+</html>

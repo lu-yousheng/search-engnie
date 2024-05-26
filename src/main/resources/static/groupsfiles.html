@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html lang="en" class="ie6 ielt7 ielt8 ielt9"><![endif]-->
+<!--[if IE 7 ]><html lang="en" class="ie7 ielt8 ielt9"><![endif]-->
+<!--[if IE 8 ]><html lang="en" class="ie8 ielt9"><![endif]-->
+<!--[if IE 9 ]><html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en"><!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>Files - Akira</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
+		<script src="js/base64.min.js"></script>
+
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </a> <a class="brand" href="#">Akira</a>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li >
+                            <a href="index.html">首页</a>
+                        </li>
+                        <li class="active">
+                            <a href="settings.htm">群组</a>
+                        </li>
+                        <li>
+                            <a href="help.htm">帮助</a>
+                        </li>
+                        <!-- <li class="dropdown">
+                            <a href="help.htm" class="dropdown-toggle" data-toggle="dropdown">Tours <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="help.htm">Introduction Tour</a>
+                                </li>
+                                <li>
+                                    <a href="help.htm">Project Organisation</a>
+                                </li>
+                                <li>
+                                    <a href="help.htm">Task Assignment</a>
+                                </li>
+                                <li>
+                                    <a href="help.htm">Access Permissions</a>
+                                </li>
+                                <li class="divider">
+                                </li>
+                                <li class="nav-header">
+                                    Files
+                                </li>
+                                <li>
+                                    <a href="help.htm">How to upload multiple files</a>
+                                </li>
+                                <li>
+                                    <a href="help.htm">Using file version</a>
+                                </li>
+                            </ul>
+                        </li> -->
+                    </ul>
+                    <form class="navbar-search pull-left" action="">
+                        <input type="text" class="search-query span2" onclick="searchPage()" placeholder="Search" />
+                    </form>
+                    <ul class="nav pull-right">
+                        <li>
+                            <a href="profile.htm">用户</a>
+                        </li>
+                        <li>
+                            <a href="login.htm">注册</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span3">
+            <div class="well" style="padding: 8px 0;">
+                <ul class="nav nav-list">
+                    <li class="nav-header">
+                        Akira
+                    </li>
+                    <li >
+                        <a href="index.html"><i class="icon-white icon-home"></i> 首页</a>
+                    </li>
+                    <li>
+                        <a href="addgroup.html"><i class="icon-folder-open"></i> 创建群组</a>
+                    </li>
+                    <li>
+                        <a href="joingroup.html"><i class="icon-check"></i> 添加群组</a>
+                    </li>
+                    <li>
+                        <a href="groups.html"><i class="icon-envelope"></i> 全部群组</a>
+                    </li>
+                    <li class="active">
+                        <a href="#"><i class="icon-file"></i> 群组文件</a>
+                    </li>
+                    <li>
+                        <a href="messages.html"><i class="icon-list-alt"></i> 个人文件</a>
+                    </li>
+                    
+                    <li class="divider">
+                    </li>
+                    <li>
+                        <a href="help.html"><i class="icon-info-sign"></i> 帮助</a>
+                    </li>
+                    <li class="nav-header">
+                        上传文件
+                    </li>
+                    <li>
+                        <a href="upfile-user.html"><i class="icon-picture"></i> 上传至个人</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="span9">
+            <h1>
+                Files
+            </h1>
+            <ul class="files zebra-list">
+                <li>
+                    <i class="icon-file"></i> <a class="title" href="#" id="docname">List of Customer Emails</a> <span class="meta" id="docinfo">Uploaded <em>2 days ago</em> by <em>John</em></span>
+                    <button type="button" class="btn btn-danger delete-btn">删除</button>
+                </li>
+            </ul>
+            <a class="toggle-link" href="#new-file"><i class="icon-plus"></i> 上传</a>
+            <form id="new-file" class="form-horizontal hidden" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>上传新文件</legend>
+                    <div class="control-group">
+                        <label class="control-label" for="textarea">描述</label>
+                        <div class="controls">
+                            <input type="text" class="input-xlarge" id="input01" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="fileInput">文件</label>
+                        <div class="controls">
+                            <input class="input-file" id="fileInput" type="file" name="file" />
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary" onclick="uploadFile()">保存</button>
+                        <button type="button" class="btn" onclick="cancelUpload()">取消</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/site.js"></script>
+<script>
+    function searchPage() {
+			location.href = "search_result.html?id="+group_id;
+		}
+    //获取当前url参数的公共方法
+        function getUrlValue(key){
+            //ex?id=1&v=2
+            var params = location.search;
+            if(params.length>1){
+                params = location.search.substring(1);
+                var paramArr = params.split("&");
+                for(var i = 0;i<paramArr.length;i++){
+                    var kv = paramArr[i].split("=");
+                if(kv[0] == key){
+                    return kv[1]; 
+                }
+            }
+            }
+            return "";
+
+        }
+        //设置全局变量获取该群组的id
+        const group_id = getUrlValue("id");
+        showInfo(group_id);
+
+    function showInfo(group_id) {
+        jQuery.ajax({
+            url: "/files/showingroup",
+            type: "post",
+            data: {"group_id":group_id},
+            success: function(result) {
+                if (result != null && result.code == 200) {
+                        var docList = result.data; // 假设后端返回的文档列表保存在 docList 中
+
+                        // 清空现有的文档列表
+                        $(".files").empty();
+
+                        // 遍历文档列表，并动态生成列表项
+                        docList.forEach(function(doc) {
+                            // 创建新的列表项
+                            var listItem = $("<li>");
+                            listItem.append('<i class="icon-file"></i> <a class="title" href=# onclick="viewFile(\''+doc.docpath+'\')">' + doc.view_name + '</a>');
+                            listItem.append('<span class="meta">上传时间：<em>' + doc.createtime + '</em> 发布人：<em>' + doc.docuser + '</em></span>');
+                            // 创建下载按钮
+                            var downloadButton = $('<button>').text('下载文件').addClass('download-button');
+                            downloadButton.click(function() {
+                                downloadFile(doc.id, doc.docpath);
+                            });
+
+                            // 将下载按钮添加到列表项中
+                            listItem.append(downloadButton);
+                            // 判断文件归属，如果是管理员或者当前用户的文件，则显示删除按钮
+                            if (doc.owner || doc.admin) {
+                                listItem.append('<button type="button" class="btn btn-danger delete-btn" data-doc-id="' + doc.id + '">删除</button>');
+                            }
+
+                            // 将新的列表项添加到列表中
+                            $(".files").append(listItem);
+                        });
+                    } else {
+                        console.log("用户未登录或请求失败");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("请求失败: " + error);
+                }
+        });
+    }
+
+            $(document).ready(function() {
+            showInfo(); // 调用函数来显示信息
+
+            // 使用委托方式处理动态生成的删除按钮的点击事件
+            $(document).on("click", ".delete-btn", function() {
+                var docId = $(this).data("doc-id"); // 从数据属性中获取文档 ID
+                // 使用 docId 执行删除操作
+                jQuery.ajax({
+                    url: "/files/delete",
+                    type: "post",
+                    data: {"group_id": group_id, "doc_id": docId}, // 将 docId 传递给删除函数
+                    success: function(result) {
+                        if (result.code == 200) {
+                            alert("文件已删除");
+                            // 如果删除成功，可以执行其他操作
+                            showInfo(group_id);
+                        } else {
+                            // 如果删除失败，处理错误
+                            alert("删除失败");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("删除请求失败: " + error);
+                    }
+                });
+            });
+        });
+
+
+        function downloadFile(docId, docPath) {
+                // 构造下载文件的请求
+                var downloadRequest = {
+                    doc_id: docId,
+                    doc_path: docPath
+                };
+
+                // 发送下载文件请求
+                jQuery.ajax({
+                    url: "/files/download",
+                    type: "post",
+                    data: downloadRequest,
+                    xhrFields: {
+                        responseType: '' // 将响应类型设置为空字符串
+                    },
+                    success: function(response) {
+                        var blob = new Blob([response]); // 创建 Blob 对象
+                        var link = document.createElement('a'); // 创建 <a> 元素
+                        link.href = window.URL.createObjectURL(blob); // 设置链接地址
+                        link.download = docPath; // 设置下载文件名
+                        link.click(); // 模拟点击链接进行下载
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("下载文件失败: " + error);
+                    }
+                });
+            }
+
+
+
+    function uploadFile() {
+        var formData = new FormData();
+        var fileInput = document.getElementById('fileInput');
+        var descriptionInput = document.getElementById('input01');
+         var groupId = group_id; // 你需要将群组ID传递给后端，这里假设群组ID为123
+
+        // 检查文件是否选择
+        if (!fileInput.files[0]) {
+            alert('Please select a file');
+            return;
+        }
+
+        // 将文件、群组ID和描述信息添加到 FormData 对象
+        formData.append('file', fileInput.files[0]);
+        formData.append('groupId', groupId);
+        formData.append('description',descriptionInput)
+        // 发起 AJAX 请求
+        $.ajax({
+            url: '/files/upfilegroups', // 将此处的 URL 替换为你的上传文件的后端接口地址
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(result) {
+                if(result.code==200){
+                    alert("上传成功");
+                    showInfo(group_id);
+                }
+            },
+            error: function(xhr, status, error) {
+                alert('File upload failed: ' + error); // 处理上传失败的情况
+            }
+        });
+    }
+
+    function viewFile(path) {
+			var url = 'http://127.0.0.1:8080/fileDownload/' + path; //要预览文件的访问地址
+			var b64Encoded = Base64.encode(url);
+			window.open('http://127.0.0.1:8012/onlinePreview?url='+encodeURIComponent(b64Encoded));
+			}
+    function cancelUpload() {
+        // 取消上传，可以在这里添加逻辑
+    }
+
+</script>
+</body>
+</html>

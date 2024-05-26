@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.Files_GroupMapper">
+    <select id="selectFiles" resultType="com.example.demo.entity.Docinfo">
+        SELECT docinfo.*
+        FROM docinfo
+        INNER JOIN Group_Files ON docinfo.id = Group_Files.doc_id
+        WHERE Group_Files.group_id = #{group_id};
+    </select>
+    <delete id="delet">
+        DELETE FROM group_files WHERE group_id = #{group_id} and doc_id = #{doc_id}
+    </delete>
+</mapper>

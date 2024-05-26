@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.GroupMapper">
+    <insert id="add">
+        INSERT INTO groups (group_name,userId, description,count_Max,user_name)
+        VALUES (#{group_name}, #{userId}, #{description}, #{count_Max},#{user_name})
+    </insert>
+    <select id="getGroupIdByname" resultType="int">
+        select group_id from groups where group_name = #{name}
+    </select>
+    <select id="getGroupName" resultType="string">
+        select group_name from groups where group_name = #{name}
+    </select>
+    <delete id="deletGroup">
+        DELETE FROM groups WHERE group_id = #{group_id}
+    </delete>
+    <select id="getNameById" resultType="string">
+        select group_name from groups where group_id = #{groupId}
+    </select>
+    <select id="getGroupUserNameById" resultType="string">
+        select user_name from groups where group_id = #{group_id}
+    </select>
+</mapper>
